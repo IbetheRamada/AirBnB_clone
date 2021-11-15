@@ -66,6 +66,27 @@ class TestFileStorage(unittest.TestCase):
         class_id = my_user.__class__.__name__ + "." + str(my_user.id)
         self.assertIsNotNone(dict_obj[class_id])
 
+    def test_save(self):
+        my_user = User()
+        my_user.first_name = "Betty"
+        my_user.last_name = "Bar"
+        my_user.email = "airbnb@mail.com"
+        my_user.password = "root"
+        obj = FileStorage()
+        obj.new(my_user)
+        dict_obj = obj.all()
+        class_id = my_user.__class__.__name__ + "." + str(my_user.id)
+        self.assertIsNotNone(dict_obj[class_id])
+        obj.save()
+        obj_2 = FileStorage()
+        obj_2.reload()
+        users_dic = obj_2.all()
+        self.assertIsNotNone(users_dic.get(class_id))
+        self.assertEqual(users_dic[class_id].first_name, my_user.first_name)
+        self.assertEqual(users_dic[class_id].last_name, my_user.last_name)
+        self.assertEqual(users_dic[class_id].email, my_user.email)
+        self.assertEqual(users_dic[class_id].password, my_user.password)
+
     def test_pep8_style(self):
         """Test pep8 coding style"""
         style = pep8.StyleGuide(quiet=True)

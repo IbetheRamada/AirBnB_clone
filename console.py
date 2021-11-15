@@ -50,14 +50,14 @@ class HBNBCommand(cmd.Cmd):
         list_arg = arg.split()
 
         try:
-            name = list_arg[0]
+            cls_name = list_arg[0]
             id_in_arg = list_arg[1]
         except Exception:
             pass
 
         if not arg:
             print("** class name missing **")
-        elif name not in class_names:
+        elif cls_name not in class_names:
             print("** class doesn't exist **")
         elif len(list_arg) < 2:
             print("** instance id missing **")
@@ -66,7 +66,8 @@ class HBNBCommand(cmd.Cmd):
             found_id = False
             for value in dict_obj.values():
                 obj_id = value.id
-                if obj_id == id_in_arg:
+                if obj_id == id_in_arg and \
+                   cls_name == value.__class__.__name__:
                     found_id = True
                     print(value)
             if found_id is False:
@@ -82,14 +83,14 @@ class HBNBCommand(cmd.Cmd):
         list_arg = arg.split()
 
         try:
-            name = list_arg[0]
+            cls_name = list_arg[0]
             id_in_arg = list_arg[1]
         except Exception:
             pass
 
         if not arg:
             print("** class name missing **")
-        elif name not in class_names:
+        elif cls_name not in class_names:
             print("** class doesn't exist **")
         elif len(list_arg) < 2:
             print("** instance id missing **")
@@ -99,7 +100,8 @@ class HBNBCommand(cmd.Cmd):
             copy_dict_obj = dict_obj.copy()
             for key, value in copy_dict_obj.items():
                 obj_id = value.id
-                if obj_id == id_in_arg:
+                if obj_id == id_in_arg and \
+                   cls_name == value.__class__.__name__:
                     found_id = True
                     dict_obj.pop(key)
                     models.storage.save()
@@ -153,7 +155,8 @@ class HBNBCommand(cmd.Cmd):
             found_id = False
             for value in dict_obj.values():
                 obj_id = value.id
-                if obj_id == list_arg[1]:
+                if obj_id == list_arg[1] and \
+                   list_arg[0] == value.__class__.__name__:
                     found_id = True
                     if len(list_arg) < 3:
                         print("** attribute name missing **")
