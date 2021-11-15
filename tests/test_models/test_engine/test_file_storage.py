@@ -67,6 +67,9 @@ class TestFileStorage(unittest.TestCase):
         self.assertIsNotNone(dict_obj[class_id])
 
     def test_save(self):
+        """
+        Test method save
+        """
         my_user = User()
         my_user.first_name = "Betty"
         my_user.last_name = "Bar"
