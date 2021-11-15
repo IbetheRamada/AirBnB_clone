@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This file is the entry point of 
+This file is the entry point of
 the command interpreter
 """
 import cmd

@@ -33,8 +33,6 @@ class TestPlace(unittest.TestCase):
         self.assertTrue(hasattr(obj, "__str__"))
         self.assertTrue(hasattr(obj, "save"))
         self.assertTrue(hasattr(obj, "to_dict"))
-        self.assertTrue(hasattr(obj, "email"))
-        self.assertTrue(hasattr(obj, "password"))
         self.assertTrue(hasattr(obj, "city_id"))
         self.assertTrue(hasattr(obj, "user_id"))
         self.assertTrue(hasattr(obj, "name"))
