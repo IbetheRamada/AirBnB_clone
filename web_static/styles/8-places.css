@@ -1,0 +1,37 @@
+h1 {
+    font-size: 30px;
+    text-align: left;
+}
+
+article h2 {
+    width: 390px;
+    padding: 20px;
+    margin: 20px;
+    border: 1px #FF5A5F solid;
+    border-radius: 4px;
+    font-size: 30px;
+    text-align: center;
+}
+
+article h2{
+    display: flex;
+    justify-content: center;
+    float: left;
+    
+}
+
+.final {
+    position: relative;
+    left: 25%;
+}
+
+.price_by_night {
+    width: 60px;
+    font-size: 30px;
+    color: #FF5A5F;
+    border: #FF5A5F 4px solid;
+    border-radius: 50%;
+    height: 60px;
+    min-width: 60px;
+    float: left;
+}
